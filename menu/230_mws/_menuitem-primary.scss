@@ -1,0 +1,78 @@
+/* BASE_230 | MENU | 230_MWS | MENUITEM-PRIMARY - 2017-06-27 */
+
+// -------------------------------------
+// EXTEND
+
+	// MENU-ITEM
+	// .menu-primary .menu-item
+	%menuprimary-menuitem {}
+	%menuprimary-menuitem-a {}
+	%menuprimary-menuitem-hvr {
+		background-color: #0c90d2;
+		}
+		
+		// LEVEL 1 MENU-ITEM
+		// .menu-primary.menu > .menu-item
+		%menuprimary-menuitemlvlone {}
+		%menuprimary-menuitemlvlone-a {}
+		%menuprimary-menuitemlvlone-hvr {}
+		
+		// MENU-ITEM MENU-ITEM-HAS-CHILDREN
+		// .menu-primary .menu-item.menu-item-has-children
+		%menuprimary-menuitemhaschildren {}
+		%menuprimary-menuitemhaschildren-a {}
+		%menuprimary-menuitemhaschildren-hvr {}
+		
+		// SUB-MENU MENU-ITEM
+		// .menu-primary .menu-item.menu-item-has-children
+		%menuprimary-submenu-menuitem {}
+		%menuprimary-submenu-menuitem-a {}
+		%menuprimary-submenu-menuitem-hvr {}
+
+// -------------------------------------
+// SELECTORS
+
+	// MENU-ITEM
+	.menu-primary .menu-item {
+		@extend %menuprimary-menuitem !optional;
+	
+		a {
+			@extend %menuprimary-menuitem-a !optional;
+		
+			&:hover {
+				@extend %menuprimary-menuitem-hvr !optional;
+			}
+		}
+	}
+		// LEVEL 1 MENU-ITEM
+		.menu-primary > .menu-item {
+			@extend %menuprimary-menuitemlvlone !optional;
+		}
+		.menu-primary > .menu-item > a {
+			@extend %menuprimary-menuitemlvlone-a !optional;
+		}
+		.menu-primary > .menu-item > a:hover {
+			@extend %menuprimary-menuitemlvlone-hvr !optional;
+		}
+
+		// MENU-ITEM.MENU-ITEM-HAS-CHILDREN
+		.menu-primary .menu-item.menu-item-has-children {
+			@extend %menuprimary-menuitemhaschildren !optional;
+		}
+		.menu-primary .menu-item.menu-item-has-children > a {
+			@extend %menuprimary-menuitemhaschildren-a !optional;
+		}
+		.menu-primary .menu-item.menu-item-has-children > a:hover {
+			@extend %menuprimary-menuitemhaschildren-hvr !optional;
+		}
+
+		// SUB-MENU MENU-ITEM
+		.menu-primary .sub-menu .menu-item {
+			@extend %menuprimary-submenu-menuitem !optional;
+		}
+		.menu-primary .menu-item > a {
+			@extend %menuprimary-submenu-menuitem-a !optional;
+		}
+		.menu-primary .menu-item > a:hover {
+			@extend %menuprimary-submenu-menuitem-hvr !optional;
+		}

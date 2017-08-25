@@ -1,0 +1,73 @@
+/* BASE_230 | MENU | 230_BASE | MENUITEM-SIDEBAR - 2016-09-19 */
+
+// -------------------------------------
+// EXTEND
+
+	// MENU-ITEM
+	%sidebar-menu-menuitem {}
+	%sidebar-menu-menuitem-a {}
+	%sidebar-menu-menuitem-hvr {}
+
+		// LEVEL 1 MENU-ITEM
+		%sidebar-menu-menuitemlvlone {}
+		%sidebar-menu-menuitemlvlone-a {}
+		%sidebar-menu-menuitemlvlone-hvr {}
+
+		// MENU-ITEM MENU-ITEM-HAS-CHILDREN
+		%sidebar-menu-menuitemhaschildren {}
+		%sidebar-menu-menuitemhaschildren-a {}
+		%sidebar-menu-menuitemhaschildren-hvr {}
+
+		// SUB-MENU MENU-ITEM
+		%sidebar-submenu-menuitem {}
+		%sidebar-submenu-menuitem-a {}
+		%sidebar-submenu-menuitem-hvr {}
+
+// -------------------------------------
+// SELECTORS
+
+	// MENU-ITEM
+	.sidebar .menu .menu-item {
+		@extend %sidebar-menu-menuitem !optional;
+	
+		a {
+			@extend %sidebar-menu-menuitem-a !optional;
+		
+			&:hover {
+				@extend %sidebar-menu-menuitem-hvr !optional;
+			}
+		}
+	}
+
+		// LEVEL 1 MENU-ITEM
+		.sidebar .menu > .menu-item {
+			@extend %sidebar-menu-menuitemlvlone !optional;
+		}
+		.sidebar .menu > .menu-item > a {
+			@extend %sidebar-menu-menuitemlvlone-a !optional;
+		}
+		.sidebar .menu > .menu-item > a:hover {
+			@extend %sidebar-menu-menuitemlvlone-hvr !optional;
+		}
+
+		// MENU-ITEM.MENU-ITEM-HAS-CHILDREN
+		.sidebar .menu-item.menu-item-has-children {
+			@extend %sidebar-menu-menuitemhaschildren !optional;
+		}
+		.sidebar .menu-item.menu-item-has-children > a {
+			@extend %sidebar-menu-menuitemhaschildren-a !optional;
+		}
+		.sidebar .menu-item.menu-item-has-children > a:hover {
+			@extend %sidebar-menu-menuitemhaschildren-hvr !optional;
+		}
+
+		// .SUB-MENU MENU-ITEM
+		.sidebar .sub-menu > .menu-item {
+			@extend %sidebar-submenu-menuitem !optional;
+		}
+		.sidebar .sub-menu > .menu-item > a {
+			@extend %sidebar-submenu-menuitem-a !optional;
+		}
+		.sidebar .sub-menu > .menu-item > a:hover {
+			@extend %sidebar-submenu-menuitem-hvr !optional;
+		}

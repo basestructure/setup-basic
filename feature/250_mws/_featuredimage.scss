@@ -1,0 +1,37 @@
+/* SETUP-MWS | FEATURE | 250_MWS | FEATUREDIMAGE - 2017-08-25 */
+
+// -------------------------------------
+// EXTEND
+
+	%featuredimage_single {
+		@extend %clearfix !optional;
+
+		// BASEUP
+		@include responsive-range(baseup) {
+			float: left;
+			max-width: 45rem;
+			clear: both;
+		}
+		// BASEDOWN
+		@include responsive-range(basedown) {
+			float: left;
+			width: 100%;
+			clear: both;
+		}
+	}
+
+	%featuredimage_single_img {
+		width: 100%;
+	}
+
+
+// -------------------------------------
+// SELECTORS
+
+	.featuredimage-single {
+		@extend %featuredimage_single !optional;
+	}
+
+	.featuredimage-single img {
+		@extend %featuredimage_single_img !optional;
+	}

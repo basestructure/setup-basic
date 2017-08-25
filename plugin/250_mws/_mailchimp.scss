@@ -1,0 +1,32 @@
+/* SETUP-MWS | PLUGIN | 230_MWS | MAILCHIMP - 2017-08-25 */
+
+// -------------------------------------
+// EXTEND
+
+// -------------------------------------
+// SELECTORS
+
+	// DIV Element	This DIV element wraps around the form. Use this selector in front of the other selectors below to ensure styles get applied. (e.g. #mc_embed_signup .mc-field-group)
+	#mc_embed_signup {}
+	body #mc_embed_signup form {
+		padding: 1rem 1.5rem;
+		background-color: #e6e3cd;
+	}
+
+	// FORM Element	Use this selector to set styles on the main form element. Useful for increasing padding around form elements.
+	#mc-embedded-subscribe-form {}
+
+	// Field Group	Wrapper for each label and input combination on forms with more than one field. Use this to control horizontal and vertical spacing (padding) between inputs. Some .mc-field-group elements also have a .size1of2 class which makes them half size to fit 2 per row.
+	div.mc-field-group {}
+
+	// Labels	Default label selector. Use this to style most form labels.
+	div.mc-field-group label {}
+
+	// Input(s)	Default input selector. Use this to style most form inputs.
+	div.mc-field-group input {}
+
+	// Drop-down Menus	Default select (drop-down) selector. Use this to style all drop-down menus.
+	div.mc-field-group select {}
+
+	// Submit Button	Use this selector to style the submit button.
+	input.button {}

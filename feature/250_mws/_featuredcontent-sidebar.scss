@@ -1,0 +1,36 @@
+/* SETUP-MWS | FEATURE | 250_MWS | FEATUREDCONTENT-SIDEBAR - 2017-08-25 */
+
+// -------------------------------------
+// EXTEND
+
+	%featuredcontent_sidebar_image {
+		@extend %clearfix !optional;
+
+		//max-width: 50px;
+		//max-height: 50px;
+
+		// BASEUP
+		@include responsive-range(baseup) {}
+		// BASEDOWN
+		@include responsive-range(basedown) {}
+	}
+
+	%featuredcontent_sidebar_entry {
+		margin-bottom: 0.5rem;
+	}
+
+
+// -------------------------------------
+// SELECTORS
+
+	.sidebar .featured-content img.entry-image {
+		@extend %featuredcontent_sidebar_image !optional;
+	}
+
+	.footer-widget-area .featured-content img.entry-image {
+		@extend %featuredcontent_sidebar_image !optional;
+	}
+
+	.sidebar .featured-content .entry {
+		@extend %featuredcontent_sidebar_entry !optional;
+	}

@@ -110,18 +110,19 @@ add_theme_support( 'genesis-after-entry-widget-area' );
 add_theme_support( 'genesis-footer-widgets', 3 );
 
 // Add Image Sizes.
+add_image_size( 'featured-icon', 50, 50, TRUE );
 add_image_size( 'featured-image', 720, 405, TRUE );
 
 // Rename primary and secondary navigation menus.
-add_theme_support( 'genesis-menus', array( 'primary' => __( 'Top Menu', 'setupbasic' ), 'secondary' => __( 'Header Menu', 'setupbasic' ) ) );
+add_theme_support( 'genesis-menus', array( 'primary' => __( 'After Header Menu', 'setupbasic' ), 'secondary' => __( 'Topic Menu', 'setupbasic' ) ) );
 
 // Reposition the primary navigation menu.
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
-add_action( 'genesis_header_right', 'genesis_do_nav', 5 );
+add_action( 'genesis_header_right', 'genesis_do_nav', 12 );
 
 // Reposition the secondary navigation menu.
-remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-add_action( 'genesis_before_header', 'genesis_do_subnav', 5 );
+//remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+//add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
 
 // Reduce the secondary navigation menu to one level depth.
 add_filter( 'wp_nav_menu_args', 'setupbasic_secondary_menu_args' );
@@ -151,6 +152,34 @@ function setupbasic_comments_gravatar( $args ) {
 
 	return $args;
 
+}
+
+// Move image above post title in Genesis Framework 2.0
+remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
+add_action( 'genesis_entry_header', 'genesis_do_post_image', 8 );
+
+// Display featured image (if present) before entry on single Posts
+add_action( 'genesis_before_entry', 'bsr_featured_image_above_post' );
+function bsr_featured_image_above_post() {
+	// if we are not on a single Post having a featured image, abort.
+	if ( ! ( is_singular( 'post' ) && has_post_thumbnail() ) ) {
+		return;
+	}
+
+	// get the URL of featured image
+	$image = genesis_get_image( 'format=url&size=featured-image' );
+
+	// get the alt text of featured image
+	$thumb_id = get_post_thumbnail_id( get_the_ID() );
+	$alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
+
+	// if no alt text is present for featured image, set it to Post title
+	if ( '' == $alt ) {
+		$alt = the_title_attribute( 'echo=0' );
+	}
+
+	// display the featured image
+	printf( '<div class="featuredimage-single"><img src="%s" alt="%s" /></div>', esc_url( $image ), $alt );
 }
 
 //* Add the credits section on the site footer

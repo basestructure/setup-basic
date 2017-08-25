@@ -1,0 +1,72 @@
+/* BASE_230 | MENU | 230_BASE | MENUITEM-FOOTER - 2016-09-19 */
+
+// -------------------------------------
+// EXTEND
+
+	// MENU-ITEM
+	%footerwidgets-menu-menuitem {}
+	%footerwidgets-menu-menuitem-a {}
+	%footerwidgets-menu-menuitem-hvr {}
+		
+		// LEVEL 1 MENU-ITEM
+		%footerwidgets-menu-menuitemlvlone {}
+		%footerwidgets-menu-menuitemlvlone-a {}
+		%footerwidgets-menu-menuitemlvlone-hvr {}
+		
+		// MENU-ITEM MENU-ITEM-HAS-CHILDREN
+		%footerwidgets-menu-menuitemhaschildren {}
+		%footerwidgets-menu-menuitemhaschildren-a {}
+		%footerwidgets-menu-menuitemhaschildren-hvr {}
+		
+		// SUB-MENU MENU-ITEM
+		%footerwidgets-submenu-menuitem {}
+		%footerwidgets-submenu-menuitem-a {}
+		%footerwidgets-submenu-menuitem-hvr {}
+
+// -------------------------------------
+// SELECTORS
+
+	// MENU-ITEM
+	.footer-widgets .menu .menu-item {
+		@extend %footerwidgets-menu-menuitem !optional;
+	
+		a {
+			@extend %footerwidgets-menu-menuitem-a !optional;
+		
+			&:hover {
+				@extend %footerwidgets-menu-menuitem-hvr !optional;
+			}
+		}
+	}
+		// LEVEL 1 MENU-ITEM
+		.footer-widgets .menu > .menu-item {
+			@extend %footerwidgets-menu-menuitemlvlone !optional;
+		}
+		.footer-widgets .menu > .menu-item > a {
+			@extend %footerwidgets-menu-menuitemlvlone-a !optional;
+		}
+		.footer-widgets .menu > .menu-item > a:hover {
+			@extend %footerwidgets-menu-menuitemlvlone-hvr !optional;
+		}
+
+		// MENU-ITEM.MENU-ITEM-HAS-CHILDREN
+		.footer-widgets .menu-item.menu-item-has-children {
+			@extend %footerwidgets-menu-menuitemhaschildren !optional;
+		}
+		.footer-widgets .menu-item.menu-item-has-children > a {
+			@extend %footerwidgets-menu-menuitemhaschildren-a !optional;
+		}
+		.footer-widgets .menu-item.menu-item-has-children > a:hover {
+			@extend %footerwidgets-menu-menuitemhaschildren-hvr !optional;
+		}
+
+		// .SUB-MENU MENU-ITEM
+		.footer-widgets .sub-menu > .menu-item {
+			@extend %footerwidgets-submenu-menuitem !optional;
+		}
+		.footer-widgets .sub-menu > .menu-item > a {
+			@extend %footerwidgets-submenu-menuitem-a !optional;
+		}
+		.footer-widgets .sub-menu > .menu-item > a:hover {
+			@extend %footerwidgets-submenu-menuitem-hvr !optional;
+		}

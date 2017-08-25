@@ -1,0 +1,198 @@
+/* BASE_230 | MENU | 230_BASE | MENUITEM-RESPONSIVE - 2017-04-26 */
+
+// -------------------------------------
+// EXTEND
+
+	// GENESIS-RESPONSIVE-MENU
+	%grm {
+		@include responsive-range(medbelowdown) {
+			display: none;			// hides responsive submenu
+			position: relative;		// sets environment for positioned toggle buttons
+		}
+	}
+		%grm-gnm {}
+
+	// GENESIS-RESPONSIVE-MENU MENU-ITEM
+	// .genesis-responsive-menu .menu-item
+	%grm-menuitem {}
+	%grm-menuitem-a {}
+	%grm-menuitem-hvr {}
+
+	// MENU-ITEM
+	// .genesis-responsive-menu .genesis-nav-menu .menu-item
+	%grm-gnm-menuitem {
+		@include responsive-range(medbelowdown) {
+									// keeps the toggle buttons isolated in its own menuitem
+			display: block;
+			float: none;
+			position: relative;
+			text-align: left;
+		}
+	}
+	%grm-gnm-menuitem-a {
+		@include responsive-range(medbelowdown) {
+			border: none;
+			margin-bottom: 1px;
+			width: 100%;
+		}
+	}
+	%grm-gnm-menuitem-hvr {}
+	%grm-gnm-menuitem-focus {}
+	%grm-gnm-menuitem-hvrfocus {
+		@include responsive-range(medbelowdown) {
+			position: relative;
+		}
+	}
+		
+		// LEVEL 1 MENU-ITEM
+		// .genesis-responsive-menu .genesis-nav-menu.menu > .menu-item
+		%grm-gnm-menuitemlvlone {}
+		%grm-gnm-menuitemlvlone-a {}
+		%grm-gnm-menuitemlvlone-hvr {}
+		
+		// MENU-ITEM MENU-ITEM-HAS-CHILDREN
+		// .genesis-responsive-menu .genesis-nav-menu .menu-item.menu-item-has-children
+		%grm-gnm-menuitemhaschildren {}
+		%grm-gnm-menuitemhaschildren-a {}
+		%grm-gnm-menuitemhaschildren-hvr {}
+
+		%grm-gnm-menuitemhaschildren-a-after {
+			@include responsive-range(medbelowdown) {
+				content: none;
+			}
+		}
+		
+		// SUB-MENU MENU-ITEM
+		// .genesis-responsive-menu .genesis-nav-menu .menu-item.menu-item-has-children
+		%grm-gnm-submenu-menuitem {}
+		%grm-gnm-submenu-menuitem-a {}
+		%grm-gnm-submenu-menuitem-hvr {}
+
+
+	// GENESIS-RESPONSIVE-MENU GENESIS-NAV-MENU
+	%grm-gnm-submenu {
+		@include responsive-range(medbelowdown) {
+			clear: both;
+			display: none;
+			margin: 0;
+			opacity: 1;
+			position: static;
+			width: 100%;
+		}
+	}
+	%grm-gnm-submenu-a {}
+	%grm-gnm-submenu-hvr {}
+
+		%grm-gnm-submenu-submenu {
+			@include responsive-range(medbelowdown) {
+				margin: 0;
+			}
+		}
+		%grm-gnm-submenu-menuitem-afocus-ulsubmenu {
+			@include responsive-range(medbelowdown) {
+				left: 0;
+				margin-left: 0;
+			}
+		}
+
+// -------------------------------------
+// SELECTORS
+
+	// GENESIS-RESPONSIVE-MENU
+
+	.genesis-responsive-menu {
+		@extend %grm !optional;
+	}
+		.genesis-responsive-menu .genesis-nav-menu {
+			@extend %grm-gnm !optional;
+		}
+
+	// GENESIS-RESPONSIVE-MENU MENU-ITEM
+	.genesis-responsive-menu .menu-item {
+		@extend %grm-menuitem !optional;
+	
+		a {
+			@extend %grm-menuitem-a !optional;
+		
+			&:hover {
+				@extend %grm-menuitem-hvrfocus !optional;
+				@extend %grm-menuitem-hvr !optional;
+			}
+
+			&:focus {
+				@extend %grm-menuitem-hvrfocus !optional;
+				@extend %grm-menuitem-focus !optional;
+			}
+		}
+	}
+
+	// GENESIS-RESPONSIVE-MENU GENESIS-NAV-MENU MENU-ITEM
+	.genesis-responsive-menu .genesis-nav-menu .menu-item {
+		@extend %grm-gnm-menuitem !optional;
+	
+		a {
+			@extend %grm-gnm-menuitem-a !optional;
+		
+			&:hover {
+				@extend %grm-gnm-menuitem-hvr !optional;
+			}
+		}
+	}
+		// LEVEL 1 MENU-ITEM
+		.genesis-responsive-menu .genesis-nav-menu > .menu-item {
+			@extend %grm-gnm-menuitemlvlone !optional;
+		}
+		.genesis-responsive-menu .genesis-nav-menu > .menu-item > a {
+			@extend %grm-gnm-menuitemlvlone-a !optional;
+		}
+		.genesis-responsive-menu .genesis-nav-menu > .menu-item > a:hover {
+			@extend %grm-gnm-menuitemlvlone-hvr !optional;
+		}
+
+		// MENU-ITEM.MENU-ITEM-HAS-CHILDREN
+		.genesis-responsive-menu .genesis-nav-menu .menu-item.menu-item-has-children {
+			@extend %grm-gnm-menuitemhaschildren !optional;
+		}
+		.genesis-responsive-menu .genesis-nav-menu .menu-item.menu-item-has-children > a {
+			@extend %grm-gnm-menuitemhaschildren-a !optional;
+		}
+		.genesis-responsive-menu .genesis-nav-menu .menu-item.menu-item-has-children > a:hover {
+			@extend %grm-gnm-menuitemhaschildren-hvr !optional;
+		}
+		.genesis-responsive-menu .genesis-nav-menu .menu-item.menu-item-has-children > a::after {
+			@extend %grm-gnm-menuitemhaschildren-a-after !optional;
+		}
+
+		// SUB-MENU MENU-ITEM
+		.genesis-responsive-menu .genesis-nav-menu .sub-menu .menu-item {
+			@extend %grm-gnm-submenu-menuitem !optional;
+		}
+		.genesis-responsive-menu .genesis-nav-menu .menu-item > a {
+			@extend %grm-gnm-submenu-menuitem-a !optional;
+		}
+		.genesis-responsive-menu .genesis-nav-menu .menu-item > a:hover {
+			@extend %grm-gnm-submenu-menuitem-hvr !optional;
+		}
+
+	// GENESIS-RESPONSIVE-MENU GENESIS-NAV-MENU SUB-MENU
+
+	.genesis-responsive-menu .genesis-nav-menu .sub-menu {
+		@extend %grm-gnm-submenu !optional;
+
+		a {
+			@extend %grm-gnm-submenu-a !optional;
+		
+			&:hover {
+				@extend %grm-gnm-submenu-hvr !optional;
+			}
+		}
+	}	
+
+		.genesis-responsive-menu .genesis-nav-menu .sub-menu .sub-menu {
+			@extend %grm-gnm-submenu-submenu !optional;
+		}
+
+		.genesis-responsive-menu .genesis-nav-menu .menu-item > a:focus ul.sub-menu,
+		.genesis-responsive-menu .genesis-nav-menu .menu-item > a:focus ul.sub-menu .sub-menu {
+			@extend %grm-gnm-submenu-menuitem-afocus-ulsubmenu !optional;
+		}

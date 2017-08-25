@@ -40,8 +40,8 @@
 //@import 	"body/230_base/html";
 //@import 	"body/230_base/body";
 
-// -------------------------------------------------------------------- LAYOUT | 2017-01-12
-@import 	"layout/230_base/body";
+// -------------------------------------------------------------------- LAYOUT | 2017-08-25
+						@import 	"layout/250_mws/body";
 
 // -------------------------------------------------------------------- SELECTOR | 2017-07-19
 			@import 	"selector/250_setup/boxsizing";
@@ -122,16 +122,18 @@
 @import 	"meta/230_base/pagination";
 
 // -------------------------------------------------------------------- MENU (STRUCTURE) | 2016-09-19
-			//@import 	"menu/230_model-basicsetup/navprimary";
-			//@import 	"menu/230_model-basicsetup/navsecondary";
+			@import 	"menu/230_mws/navprimary";
+			@import 	"menu/230_mws/navsecondary";
 
-// -------------------------------------------------------------------- MENU | 2017-04-26
-			@import 	"menu/230_model-basicsetup/menu";
+// -------------------------------------------------------------------- MENU | 2017-06-27
+			@import 	"menu/230_mws/menu";
 			@import 	"menu/230_model-basicsetup/submenu";
 
 // -------------------------------------------------------------------- MENU (MENUITEM) | 2017-04-26
-			@import 	"menu/230_model-basicsetup/menuitem";
-			@import 	"menu/230_model-basicsetup/menuitem-gnm";
+			@import 	"menu/230_mws/menuitem";
+			@import 	"menu/230_mws/menuitem-gnm";
+			@import 	"menu/230_mws/menuitem-primary";
+			@import 	"menu/230_mws/menuitem-secondary";
 			//@import 	"menu/230_model-basicsetup/menuitem-widget";
 			//@import 	"menu/230_model-basicsetup/menuitem-sidebar";
 			//@import 	"menu/230_model-basicsetup/menuitem-footer";
@@ -175,14 +177,13 @@
 @import 	"entry/230_base/entryimage";
 
 // -------------------------------------------------------------------- LAYOUT | 2018-08-09
-			@import 	"layout/250_setupbasic/body";
 			@import 	"layout/250_setupbasic/structure";
 			//@import 	"layout/250_setupbasic/structure-override";
-			@import 	"layout/250_setupbasic/header";
+						@import 	"layout/250_mws/header";
 			//@import 	"layout/250_setupbasic/header-override";
-			@import 	"layout/250_setupbasic/inner";
+						@import 	"layout/250_mws/inner";
 			//@import 	"layout/250_setupbasic/inner-override";
-			@import 	"layout/250_setupbasic/footer";
+						@import 	"layout/250_mws/footer";
 			//@import 	"layout/250_setupbasic/footer-override";
 
 			// MENU
@@ -204,7 +205,7 @@
 //@import 	"layout/230_base/outside";
 //@import 	"layout/230_base/inside";
 			@import 	"layout/250_setupbasic/full";
-			@import 	"layout/250_setupbasic/cs";
+						@import 	"layout/250_mws/cs";
 			@import 	"layout/250_setupbasic/sc";
 //@import 	"layout/230_base/css";
 //@import 	"layout/230_base/scs";
@@ -219,6 +220,10 @@
 			@import 	"layout/250_guide/header";
 			@import 	"layout/250_guide/inner";
 			@import 	"layout/250_guide/footer";
+
+// -------------------------------------------------------------------- FEATURE | 2017-08-25
+						@import 	"feature/250_mws/featuredimage";
+						@import 	"feature/250_mws/featuredcontent-sidebar";
 
 // -------------------------------------------------------------------- COMMENT | 2017-04-19
 			@import 	"comment/230_model-basicsetup/entrycomments";
@@ -290,6 +295,7 @@
 @import 	"responsive/230_base/align";
 
 // -------------------------------------------------------------------- PLUGINS
+						@import 	"plugin/250_mws/mailchimp";
 
 // -------------------------------------------------------------------- HOOK | 2016-9-9
 //@import 	"hook/230_base/guide";

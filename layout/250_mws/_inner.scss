@@ -1,0 +1,121 @@
+/* SETUP | LAYOUT | 250_MWS | INNER - 2017-08-25 */
+
+// -------------------------------------
+// EXTEND
+
+	// SITE-INNER
+
+	%siteinner_layout {
+		@extend %clearfix !optional;
+		background: #e6e3cd;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to top, #fcfcfc, #e6e3cd);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to top, #fcfcfc, #e6e3cd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	}
+
+	// CONTENT-SIDEBAR-WRAP
+
+	%csw_layout {
+		@extend %clearfix !optional;
+		background-color: #fff;
+
+		// BASEUP
+		@include responsive-range(baseup) {
+			max-width: #{$width-base}rem;
+			margin-top: 3rem;
+			margin-bottom: 3rem;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 3rem;
+			//padding-top: 3rem;
+			//padding-bottom: 3rem;
+		}
+		// BASEDOWN
+		@include responsive-range(basedown) {
+			padding: 1rem;
+		}
+	}
+
+	// CONTENT
+
+	%content_layout {
+		@extend %clearfix !optional;
+
+		// BASEUP
+		@include responsive-range(baseup) {
+			max-width: #{$width-inner-medium}rem;
+		}
+		// BASEDOWN
+		@include responsive-range(basedown) {
+			max-width: #{$width-inner-medium}rem;
+		}
+	}
+		%archive-content_layout {
+
+			// BASEUP
+			@include responsive-range(baseup) {}
+			// BASEDOWN
+			@include responsive-range(basedown) {}
+		}
+
+	// SIDEBAR-PRIMARY
+
+	%sidebarprimary_layout {
+		@extend %clearfix !optional;
+		
+		// BASEUP
+		@include responsive-range(baseup) {
+			max-width: #{$width-inner-xsmall}rem;
+		}
+		// BASEDOWN
+		@include responsive-range(basedown) {
+			max-width: #{$width-inner-xsmall}rem;
+		}
+		// SMLDOWN
+		@include responsive-range(smldown) {
+			margin-top: 2rem;
+		}
+	}
+
+	// SIDEBAR-SECONDARY
+
+	%sidebarsecondary_layout {
+		@extend %clearfix !optional;
+	}
+
+// -------------------------------------
+// SELECTORS
+
+	// SITE-INNER
+
+	.site-inner {
+		@extend %siteinner_layout !optional;
+	}
+
+	// CONTENT-SIDEBAR-WRAP
+
+	.content-sidebar-wrap {
+		@extend %csw_layout !optional;
+	}
+
+	// CONTENT
+
+	.content {
+		@extend %content_layout !optional;
+	}
+		body.blog .content,
+		body.archive .content {
+			@extend %archive-content_layout !optional;
+		}
+
+	// SIDEBAR-PRIMARY
+
+	.sidebar-primary {
+		@extend %sidebarprimary_layout !optional;
+	}
+
+	// SIDEBAR-SECONDARY
+
+	.sidebar-secondary {
+		@extend %sidebarsecondary_layout !optional;
+	}
+

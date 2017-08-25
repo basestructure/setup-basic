@@ -1,0 +1,24 @@
+/* BASE_230 | MENU | 230_MWS | NAVPRIMARY - 2017-06-27 */
+
+// -------------------------------------
+// EXTEND
+
+	%navprimary {
+		background-color: #096fa2;
+	}
+	%navprimarywrap {}
+	%navprimarywraponly {}
+
+// -------------------------------------
+// SELECTORS
+
+	.nav-primary {
+		@extend %navprimary !optional;
+
+		.wrap {
+			@extend %navprimarywrap !optional;
+		}
+	}
+	.nav-primary > .wrap {
+		@extend %navprimarywraponly !optional;
+	}

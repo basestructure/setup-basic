@@ -1,0 +1,152 @@
+/* BASE_230 | MENU | 230_BASE | TOGGLE - 2017-04-26 */
+
+// -------------------------------------
+// EXTEND
+
+	%bothtoggle {
+		display: none;				// hides the submenus
+		visibility: hidden;			// hides the submenus
+
+		@include responsive-range(medbelowdown) {
+			display: block;
+			visibility: visible;	// shows the submenus' content
+			overflow: hidden;
+
+									// defines the toggle buttons default color
+			color: $color-link;
+			background-color: #fff;
+
+									// overrides the parent button selector
+			border-width: 0;
+			border-radius: 0;
+			cursor: pointer;
+			text-transform: uppercase;
+			padding: 0;
+			margin: 0 auto;
+			text-align: center;
+		}
+	}
+	%bothtoggle-hoverfocus {
+		@include responsive-range(medbelowdown) {
+										// defines the (menu & sub) toggle buttons hover color
+			color: #fff;
+			background-color: $color-link;
+			border-width: 0;			// not sure what this does
+		}
+	}
+
+	%menutoggle {
+		@include responsive-range(medbelowdown) {
+			width: 100%;			// stretches button clickability to maximum width
+			position: relative;		// centers the button relative to it's parent
+			z-index: 1000;
+		}
+	}
+	%menutoggle-focus {}
+	%menutoggle-hover {
+		@include responsive-range(medbelowdown) {
+									// defines & overrides the menu-toggle buttons hover color
+			color: #fff;
+			background-color: $color-link;
+			border-width: 0;		// not sure what this does
+		}
+	}
+
+	%menutoggle-before {
+		margin-right: 10px;
+		text-rendering: auto;
+	}
+	%menutoggle-activatedbefore {}
+
+	%submenutoggle {
+		@include responsive-range(medbelowdown) {
+									// pushes submenu toggle button to right
+			float: right;
+			position: absolute;
+			right: 0;
+			top: 0;
+			z-index: 100;
+		}
+	}
+	%submenutoggle-focus {}
+	%submenutoggle-hover {}
+
+	%submenu-submenutoggle {}
+
+	%submenutoggle-before {
+		@include responsive-range(medbelowdown) {
+			display: inline-block;
+			text-rendering: auto;
+			-webkit-transform: rotate( 0 );
+			-ms-transform:     rotate( 0 );
+			transform:         rotate( 0 );
+			-webkit-transition: transform .25s ease-in-out;
+			-ms-transition:     transform .25s ease-in-out;
+			transition:         transform .25s ease-in-out;
+		}
+	}
+	%submenutoggle-activatedbefore {
+		@include responsive-range(medbelowdown) {
+			-webkit-transform: rotate( 180deg );
+			-ms-transform:     rotate( 180deg );
+			transform:         rotate( 180deg );
+		}
+	}
+
+// -------------------------------------
+// SELECTORS
+
+	button.menu-toggle,
+	.menu-toggle {
+		@extend %bothtoggle !optional;
+		@extend %menutoggle !optional;
+	}
+	button.sub-menu-toggle,
+	.sub-menu-toggle {
+		@extend %bothtoggle !optional;
+		@extend %submenutoggle !optional;
+	}
+
+	button.menu-toggle:focus,
+	.menu-toggle:focus {
+		@extend %bothtoggle-hoverfocus !optional;
+		@extend %menutoggle-focus !optional;
+	}
+	button.menu-toggle:hover,
+	.menu-toggle:hover {
+		@extend %bothtoggle-hoverfocus !optional;
+		@extend %menutoggle-hover !optional;
+	}
+
+	button.menu-toggle:before,
+	.menu-toggle:before {
+		@extend %menutoggle-before !optional;
+	}
+	button.menu-toggle.activated::before,
+	.menu-toggle.activated::before {
+		@extend %menutoggle-activatedbefore !optional;
+	}
+
+	button.sub-menu-toggle:focus,
+	.sub-menu-toggle:focus {
+		@extend %bothtoggle-hoverfocus !optional;
+		@extend %submenutoggle-focus !optional;
+	}
+	button.sub-menu-toggle:hover,
+	.sub-menu-toggle:hover {
+		@extend %bothtoggle-hoverfocus !optional;
+		@extend %submenutoggle-hover !optional;
+	}
+
+	button.sub-menu-toggle::before,
+	.sub-menu-toggle::before {
+		@extend %submenutoggle-before !optional;
+	}
+	button.sub-menu-toggle.activated::before,
+	.sub-menu-toggle.activated::before {
+		@extend %submenutoggle-activatedbefore !optional;
+	}
+
+	.sub-menu .sub-menu-toggle {
+		@extend %submenu-submenutoggle !optional;
+	}

@@ -1,0 +1,63 @@
+/* BASE_230 | MENU | 230_MWS | MENUITEM - 2017-06-27 */
+
+// -------------------------------------
+// EXTEND
+
+	// MENU-ITEM
+	%menuitem {}
+	%menuitem-a {}
+	%menuitem-hvr {}
+
+		%menu-menuitem-focus {}
+
+		// LEVEL 1 MENU-ITEM
+		%menu-menuitem {}
+		%menu-menuitem-a {}
+		%menu-menuitem-hvr {}
+		
+		// MENU-ITEM MENU-ITEM-HAS-CHILDREN
+		%menu-menuitemhaschildren {}
+		%menu-menuitemhaschildren-a {}
+		%menu-menuitemhaschildren-hvr {}
+
+// -------------------------------------
+// SELECTORS
+
+	// MENU-ITEM
+	.menu-item {
+		@extend %menuitem !optional;
+	
+		a {
+			@extend %menuitem-a !optional;
+		
+			&:hover {
+				@extend %menuitem-hvr !optional;
+			}
+		}
+	}
+
+		.menu .menu-item:focus {
+			@extend %menu-menuitem-focus !optional;
+		}
+
+		// LEVEL 1 MENU-ITEM
+		.menu > .menu-item {
+			@extend %menu-menuitem !optional;
+		}
+		.menu > .menu-item > a {
+			@extend %menu-menuitem-a !optional;
+		}
+		.menu > .menu-item > a:hover {
+			@extend %menu-menuitem-hvr !optional;
+		}
+
+		// MENU-ITEM.MENU-ITEM-HAS-CHILDREN
+		.menu .menu-item.menu-item-has-children {
+			@extend %menuitemhaschildren !optional;
+		}
+		.menu .menu-item.menu-item-has-children > a {
+			@extend %menuitemhaschildren-a !optional;
+		}
+		.menu .menu-item.menu-item-has-children > a:hover {
+			@extend %menuitemhaschildren-hvr !optional;
+		}

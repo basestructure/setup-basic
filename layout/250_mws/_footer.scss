@@ -1,0 +1,162 @@
+/* SETUP | LAYOUT | 250_MWS | FOOTER - 2017-08-25 */
+
+// -------------------------------------
+// EXTEND
+
+	// SITE-FOOTER
+
+	%sitefooter_layout {
+		@extend %clearfix !optional;
+		background-color: #f3f3f3;
+		-webkit-box-shadow: 0px 8px 10px 7px #333;
+		-moz-box-shadow: 0px 8px 10px 7px #333;
+		box-shadow: 0px 8px 10px 7px #333;
+	}
+	%sitefooterwrap_layout {}
+	%sitefooterwraponly_layout {
+		@extend %clearfix !optional;
+
+		// BASEUP
+		@include responsive-range(baseup) {
+			max-width: #{$width-base}rem;
+			margin-left: auto;
+			margin-right: auto;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+		// BASEDOWN
+		@include responsive-range(basedown) {
+			padding: 1rem;
+		}
+
+		@extend %responsive-layout-max !optional;
+	}
+
+	// FOOTER-WIDGETS
+
+	%footerwidgets_layout {
+		@extend %clearfix !optional;
+		background-color: #fcfcfc;
+	}
+	%footerwidgetswrap_layout {}
+	%footerwidgetswraponly_layout {
+		@extend %clearfix !optional;
+		background-image: url("images/mws-footer-profile.png");
+		background-position: bottom right;
+		background-repeat: no-repeat;
+		min-height: 538px;
+
+		// BASEUP
+		@include responsive-range(baseup) {
+			max-width: #{$width-base}rem;
+			margin-left: auto;
+			margin-right: auto;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+		// BASEDOWN
+		@include responsive-range(basedown) {
+			padding: 1rem;
+		}
+
+		@extend %responsive-layout-max !optional;
+	}
+
+	%footerwidgets1_layout {
+		@extend %clearfix !optional;
+
+		// BASEUP
+		@include responsive-range(baseup) {
+			max-width: 300px;
+			width: 32%;
+			margin-right: 2%;
+			float: left;
+		}
+		// BASEDOWN
+		@include responsive-range(basedown) {
+			width: 32%;
+			margin-right: 2%;
+			float: left;
+		}
+
+		@extend %responsive-layout-max !optional;
+	}
+
+	%footerwidgets2_layout {
+		@extend %clearfix !optional;
+
+		// BASEUP
+		@include responsive-range(baseup) {
+			max-width: 300px;
+			width: 32%;
+			margin-right: 2%;
+			float: left;
+		}
+		// BASEDOWN
+		@include responsive-range(basedown) {
+			width: 32%;
+			margin-right: 2%;
+			float: left;
+		}
+
+		@extend %responsive-layout-max !optional;
+	}
+
+	%footerwidgets3_layout {
+		@extend %clearfix !optional;
+
+		// BASEUP
+		@include responsive-range(baseup) {
+			width: 32%;
+			float: left;
+		}
+		// BASEDOWN
+		@include responsive-range(basedown) {
+			width: 32%;
+			float: left;
+		}
+
+		@extend %responsive-layout-max !optional;
+	}
+
+
+// -------------------------------------
+// SELECTORS
+
+	// SITE-FOOTER
+
+	.site-footer {
+		@extend %sitefooter_layout !optional;
+
+		.wrap {
+			@extend %sitefooterwrap_layout !optional;
+		}
+	}
+	.site-footer > .wrap {
+		@extend %sitefooterwraponly_layout !optional;
+	}
+
+	// FOOTER-WIDGETS
+
+	.footer-widgets {
+		@extend %footerwidgets_layout !optional;
+
+		.wrap {
+			@extend %footerwidgetswrap_layout !optional;
+		}
+	}
+	.footer-widgets > .wrap {
+		@extend %footerwidgetswraponly_layout !optional;
+	}
+
+	.footer-widgets-1 {
+		@extend %footerwidgets1_layout !optional;
+	}
+
+	.footer-widgets-2 {
+		@extend %footerwidgets2_layout !optional;
+	}
+
+	.footer-widgets-3 {
+		@extend %footerwidgets3_layout !optional;
+	}

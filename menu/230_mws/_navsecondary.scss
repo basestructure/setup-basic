@@ -1,0 +1,25 @@
+/* BASE_230 | MENU | 230_MWS | NAVSECONDARY - 2017-07-03 */
+
+// -------------------------------------
+// EXTEND
+
+	%navsecondary {
+		background-color: #cdc69a;
+		text-align: center;
+	}
+	%navsecondarywrap {}
+	%navsecondarywraponly {}
+
+// -------------------------------------
+// SELECTORS
+
+	.nav-secondary {
+		@extend %navsecondary !optional;
+
+		.wrap {
+			@extend %navsecondarywrap !optional;
+		}
+	}
+	.nav-secondary > .wrap {
+		@extend %navsecondarywraponly !optional;
+	}

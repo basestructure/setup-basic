@@ -1,0 +1,180 @@
+/* BASE_230 | MENU | 230_BASE | SUBMENU - 2017-04-26 */
+
+// -------------------------------------
+// EXTEND
+
+	// SUBMENU
+	%submenu {}
+	%submenu-a {}
+	%submenu-hvr {}
+	%submenu-submenu {}
+
+	%menu-menuitem-a-focushover-ulsubmenu {
+		left: auto;
+		opacity: 1;
+	}
+
+	// GENESIS-NAV-MENU
+	%gnm-submenu {
+		border-top: 1px solid #eee;			// adds border acting as main border line for submenus
+											// responsible for making the submenus disappear accordingly
+		left: -9999px;
+		opacity: 0;
+		position: absolute;
+		-webkit-transition: opacity .4s ease-in-out;
+		-moz-transition: 	opacity .4s ease-in-out;
+		-ms-transition: 	opacity .4s ease-in-out;
+		-ms-transition: 	opacity .4s ease-in-out;
+		transition: 		opacity .4s ease-in-out;
+		width: 200px;
+		z-index: 99;
+	}
+	%gnm-submenu-a {
+		border: 1px solid #eee;				// adds border all around submenu
+		border-top: 0;						// removes border line on top to avoid duplicate submenu lines
+		position: relative;
+		width: 200px;						// limits submenu width
+		word-wrap: break-word;				// so long menu text doesn't disappear
+	}
+	%gnm-submenu-hvr {}
+	%gnm-menuitemhover-submenu {
+		left: auto;							// aligns desktop submenu left on mouseover
+		opacity: 1;							// shows desktop submenu on mouseover
+	}
+	%gnm-submenu-submenu {
+		margin: -56px 0 0 199px;			// adjusts position of child submenus (adjust accordingly)
+	}
+
+	// MENU-PRIMARY & MENU-SECONDARY
+	// determines the width of the submenu (needs to match %dropdown-menuprisec-submenu-menuitemwchildhvr-submenu)
+	%menuboth-submenu {}
+	%menuboth-submenu-submenu {}
+
+	// MENU-PRIMARY
+	%menuprimary-submenu {}
+	%menuprimary-submenu-submenu {}
+
+ 	// MENU-SECONDARY
+	%menusecondary-submenu {}
+	%menusecondary-submenu-submenu {}
+
+ 	// WIDGET
+	// defines the hierarchial structure of menus entered in the widget
+	%widget-submenu {}
+	%widget-submenu-submenu {}
+
+	// SIDEBAR
+	%sidebar-submenu {}
+	%sidebar-submenu-submenu {}
+
+	// NAV-HEADER
+	%navheader-submenu {}
+	%navheader-submenu-submenu {}
+
+	// FOOTER-WIDGETS
+	%footerwidgets-submenu {}
+	%footerwidgets-submenu-submenu {}
+
+	// PREFIX
+	%prefix-submenu {}
+	%prefix-submenu-submenu {}
+
+// -------------------------------------
+// SELECTORS
+
+	.sub-menu {
+		@extend %submenu !optional;
+
+		a {
+			@extend %submenu-a !optional;
+		
+			&:hover {
+				@extend %submenu-hvr !optional;
+			}
+		}
+	}
+
+		.menu .menu-item > a:focus + ul.sub-menu,
+		.menu .menu-item.sfHover > ul.sub-menu {
+			@extend %menu-menuitem-a-focushover-ulsubmenu !optional;
+		}
+		.sub-menu .sub-menu {
+			@extend %submenu-submenu !optional;
+		}
+
+	.genesis-nav-menu .sub-menu {
+		@extend %gnm-submenu !optional;
+
+		a {
+			@extend %gnm-submenu-a !optional;
+		
+			&:hover {
+				@extend %gnm-submenu-hvr !optional;
+			}
+		}
+	}
+		.genesis-nav-menu .menu-item:hover > .sub-menu {
+			@extend %gnm-menuitemhover-submenu !optional;
+		}
+		.genesis-nav-menu .sub-menu .sub-menu {
+			@extend %gnm-submenu-submenu !optional;
+		}
+
+
+
+
+
+
+
+	.nav-header .sub-menu {
+		@extend %navheader-submenu !optional;
+	}
+		.nav-header .sub-menu .sub-menu {
+			@extend %navheader-submenu-submenu !optional;
+		}
+
+	.menu-primary .sub-menu {
+		@extend %menuboth-submenu !optional;
+		@extend %menuprimary-submenu !optional;
+	}
+		.menu-primary .sub-menu .sub-menu {
+			@extend %menuboth-submenu-submenu !optional;
+			@extend %menuprimary-submenu-submenu !optional;
+		}
+
+	.menu-secondary .sub-menu {
+		@extend %menuboth-submenu !optional;
+		@extend %menusecondary-submenu !optional;
+	}
+		.menu-secondary .sub-menu .sub-menu {
+			@extend %menuboth-submenu-submenu !optional;
+			@extend %menusecondary-submenu-submenu !optional;
+		}
+
+	.widget .sub-menu {
+		@extend %widget-submenu !optional;
+	}
+		.widget .sub-menu .sub-menu {
+			@extend %widget-submenu-submenu !optional;
+		}
+
+	.sidebar .sub-menu {
+		@extend %sidebar-submenu !optional;
+	}
+		.sidebar .sub-menu .sub-menu {
+			@extend %sidebar-submenu-submenu !optional;
+		}
+
+	.footer-widgets .sub-menu {
+		@extend %footerwidgets-submenu !optional;
+	}
+		.footer-widgets .sub-menu .sub-menu {
+			@extend %footerwidgets-submenu-submenu !optional;
+		}
+
+	.prefix .sub-menu {
+		@extend %prefix-submenu !optional;
+	}
+		.prefix .sub-menu .sub-menu {
+			@extend %prefix-submenu-submenu !optional;
+		}

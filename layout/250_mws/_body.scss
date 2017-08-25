@@ -1,0 +1,46 @@
+/* SETUP | LAYOUT | 250_MWS | BODY - 2017-08-25 */
+
+// -------------------------------------
+// EXTEND
+
+	// HTML
+
+	%html_layout {}
+
+	// BODY
+
+	%body_layout {
+		font-family: $fontfamily-body;
+		color: $color-body;
+		background-color: $bgcolor-body;
+		line-height: $lineheight-body;
+	}
+
+
+// -------------------------------------
+// SELECTORS
+
+	// HTML
+
+	html {
+		@extend %html_layout !optional;
+	}
+
+	// BODY
+
+	body {
+		@extend %body_layout !optional;
+	}
+
+	body.bg-comingsoon {
+		background-image: url("images/mws-comingsoon.jpg");
+		background-color: #000;
+		background-repeat: no-repeat;
+		//background-size: cover;
+		background-position: top center;
+
+		// MEDDOWN
+		@include responsive-range(meddown) {
+			background-size: cover;
+		}
+	}

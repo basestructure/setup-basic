@@ -1,0 +1,76 @@
+/* BASE_230 | MENU | 230_BASE | MENUITEM-WIDGET - 2016-09-19 */
+
+// -------------------------------------
+// EXTEND
+
+	// MENU-ITEM
+	// .widget .menu .menu-item
+	%widget-menu-menuitem {}
+	%widget-menu-menuitem-a {}
+	%widget-menu-menuitem-hvr {}
+
+		// LEVEL 1 MENU-ITEM
+		// .widget .menu > .menu-item
+		%widget-menu-menuitemlvlone {}
+		%widget-menu-menuitemlvlone-a {}
+		%widget-menu-menuitemlvlone-hvr {}
+	
+		// MENU-ITEM MENU-ITEM-HAS-CHILDREN
+		// .widget .menu-item.menu-item-has-children
+		%widget-menu-menuitemhaschildren {}
+		%widget-menu-menuitemhaschildren-a {}
+		%widget-menu-menuitemhaschildren-hvr {}
+
+		// SUB-MENU MENU-ITEM
+		// .widget .sub-menu .menu-item
+		%widget-submenu-menuitem {}
+		%widget-submenu-menuitem-a {}
+		%widget-submenu-menuitem-hvr {}
+
+// -------------------------------------
+// SELECTORS
+
+	// MENU-ITEM
+	.widget .menu .menu-item {
+		@extend %widget-menu-menuitem !optional;
+	
+		a {
+			@extend %widget-menu-menuitem-a !optional;
+		
+			&:hover {
+				@extend %widget-menu-menuitem-hvr !optional;
+			}
+		}
+	}
+		// LEVEL 1 MENU-ITEM
+		.widget .menu > .menu-item {
+			@extend %widget-menu-menuitemlvlone !optional;
+		}
+		.widget .menu > .menu-item > a {
+			@extend %widget-menu-menuitemlvlone-a !optional;
+		}
+		.widget .menu > .menu-item > a:hover {
+			@extend %widget-menu-menuitemlvlone-hvr !optional;
+		}
+
+		// MENU-ITEM.MENU-ITEM-HAS-CHILDREN
+		.widget .menu-item.menu-item-has-children {
+			@extend %widget-menu-menuitemhaschildren !optional;
+		}
+		.widget .menu-item.menu-item-has-children > a {
+			@extend %widget-menu-menuitemhaschildren-a !optional;
+		}
+		.widget .menu-item.menu-item-has-children > a:hover {
+			@extend %widget-menu-menuitemhaschildren-hvr !optional;
+		}
+
+		// .SUB-MENU MENU-ITEM
+		.widget .sub-menu > .menu-item {
+			@extend %widget-submenu-menuitem !optional;
+		}
+		.widget .sub-menu > .menu-item > a {
+			@extend %widget-submenu-menuitem-a !optional;
+		}
+		.widget .sub-menu > .menu-item > a:hover {
+			@extend %widget-submenu-menuitem-hvr !optional;
+		}
