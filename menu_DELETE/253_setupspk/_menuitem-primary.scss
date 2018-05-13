@@ -1,0 +1,90 @@
+/* SETUP | MENU | 253_SETUPSPK | MENUITEM-PRIMARY - 2017-11-28 */
+
+// -------------------------------------
+// EXTEND
+
+	// MENU-ITEM
+	// .menu-primary .menu-item
+	%menuprimary-menuitem {
+		text-transform: uppercase;
+		list-style-type: none;
+	}
+	%menuprimary-menuitem-a {}
+	%menuprimary-menuitem-hvr {}
+		
+		// LEVEL 1 MENU-ITEM
+		// .menu-primary.menu > .menu-item
+		%menuprimary-menuitemlvlone {
+			//display: inline-block;
+			//margin-left: 2rem;
+			font-weight: 700;
+			font-size: 0.85rem;
+			letter-spacing: 1px;
+		}
+		%menuprimary-menuitemlvlone-a {}
+		%menuprimary-menuitemlvlone-hvr {}
+		
+		// MENU-ITEM MENU-ITEM-HAS-CHILDREN
+		// .menu-primary .menu-item.menu-item-has-children
+		%menuprimary-menuitemhaschildren {}
+		%menuprimary-menuitemhaschildren-a {}
+		%menuprimary-menuitemhaschildren-hvr {}
+		
+		// SUB-MENU MENU-ITEM
+		// .menu-primary .menu-item.menu-item-has-children
+		%menuprimary-submenu-menuitem {}
+		%menuprimary-submenu-menuitem-a {
+			padding: 0.5rem;
+		}
+		%menuprimary-submenu-menuitem-hvr {
+			color: #fff;
+			background-color: #333;
+		}
+
+// -------------------------------------
+// SELECTORS
+
+	// MENU-ITEM
+	.menu-primary .menu-item {
+		@extend %menuprimary-menuitem !optional;
+	
+		a {
+			@extend %menuprimary-menuitem-a !optional;
+		
+			&:hover {
+				@extend %menuprimary-menuitem-hvr !optional;
+			}
+		}
+	}
+		// LEVEL 1 MENU-ITEM
+		.menu-primary > .menu-item {
+			@extend %menuprimary-menuitemlvlone !optional;
+		}
+		.menu-primary > .menu-item > a {
+			@extend %menuprimary-menuitemlvlone-a !optional;
+		}
+		.menu-primary > .menu-item > a:hover {
+			@extend %menuprimary-menuitemlvlone-hvr !optional;
+		}
+
+		// MENU-ITEM.MENU-ITEM-HAS-CHILDREN
+		.menu-primary .menu-item.menu-item-has-children {
+			@extend %menuprimary-menuitemhaschildren !optional;
+		}
+		.menu-primary .menu-item.menu-item-has-children > a {
+			@extend %menuprimary-menuitemhaschildren-a !optional;
+		}
+		.menu-primary .menu-item.menu-item-has-children > a:hover {
+			@extend %menuprimary-menuitemhaschildren-hvr !optional;
+		}
+
+		// SUB-MENU MENU-ITEM
+		.menu-primary .sub-menu .menu-item {
+			@extend %menuprimary-submenu-menuitem !optional;
+		}
+		.menu-primary .menu-item > a {
+			@extend %menuprimary-submenu-menuitem-a !optional;
+		}
+		.menu-primary .menu-item > a:hover {
+			@extend %menuprimary-submenu-menuitem-hvr !optional;
+		}

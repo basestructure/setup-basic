@@ -1,0 +1,82 @@
+/* SETUP | MENU | 253_SETUPSTANDARD | NAV - 2017-1-2 */
+
+// -------------------------------------
+// EXTEND
+
+	// NAV-PRIMARY
+
+	%navprimary {
+		//background-color: red;
+		grid-area: navprimary;
+		margin-top: 1rem;
+		border-top: 1px solid #ccc;
+
+		// LRG (UP)
+		@include responsive-range(lrgup) {
+			margin-top: 0;
+			border-top: 0;
+		}
+
+	}
+	%navprimarywrap {}
+	%navprimarywraponly {}
+
+	// NAV-SECONDARY
+
+	%navsecondary {
+		//background-color: green;
+		grid-area: navsecondary;
+	}
+	%navsecondarywrap {}
+	%navsecondarywraponly {}
+
+	// NAV-FOOTER
+
+	%navfooter {
+		//background-color: blue;
+		grid-area: navfooter;
+	}
+	%navfooterwrap {}
+	%navfooterwraponly {}
+
+// -------------------------------------
+// SELECTORS
+
+	// NAV-PRIMARY
+
+	.nav-primary {
+		@extend %navprimary !optional;
+
+		.wrap {
+			@extend %navprimarywrap !optional;
+		}
+	}
+	.nav-primary > .wrap {
+		@extend %navprimarywraponly !optional;
+	}
+
+	// NAV-SECONDARY
+
+	.nav-secondary {
+		@extend %navsecondary !optional;
+
+		.wrap {
+			@extend %navsecondarywrap !optional;
+		}
+	}
+	.nav-secondary > .wrap {
+		@extend %navsecondarywraponly !optional;
+	}
+
+	// NAV-FOOTER
+
+	.nav-footer {
+		@extend %navfooter !optional;
+
+		.wrap {
+			@extend %navfooterwrap !optional;
+		}
+	}
+	.nav-footer > .wrap {
+		@extend %navfooterwraponly !optional;
+	}

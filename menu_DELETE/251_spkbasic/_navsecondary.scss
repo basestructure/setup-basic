@@ -1,0 +1,22 @@
+/* SETUP | MENU | 251_SETUPBASIC | NAVSECONDARY - 2017-08-31 */
+
+// -------------------------------------
+// EXTEND
+
+	%navsecondary {}
+	%navsecondarywrap {}
+	%navsecondarywraponly {}
+
+// -------------------------------------
+// SELECTORS
+
+	.nav-secondary {
+		@extend %navsecondary !optional;
+
+		.wrap {
+			@extend %navsecondarywrap !optional;
+		}
+	}
+	.nav-secondary > .wrap {
+		@extend %navsecondarywraponly !optional;
+	}

@@ -1,0 +1,69 @@
+/* SETUP | MENU | 251_SPKBASIC | MENUITEM - 2017-09-08 */
+
+// -------------------------------------
+// EXTEND
+
+	// MENU-ITEM
+	%menuitem {
+		font-family: 'Lato','Roboto',arial,serif;
+	}
+	%menuitem-a {
+		color: #333;
+	}
+	%menuitem-hvr {
+		color: #666;
+	}
+
+		%menu-menuitem-focus {}
+
+		// LEVEL 1 MENU-ITEM
+		%menu-menuitem {}
+		%menu-menuitem-a {}
+		%menu-menuitem-hvr {}
+		
+		// MENU-ITEM MENU-ITEM-HAS-CHILDREN
+		%menu-menuitemhaschildren {}
+		%menu-menuitemhaschildren-a {}
+		%menu-menuitemhaschildren-hvr {}
+
+// -------------------------------------
+// SELECTORS
+
+	// MENU-ITEM
+	.menu-item {
+		@extend %menuitem !optional;
+	
+		a {
+			@extend %menuitem-a !optional;
+		
+			&:hover {
+				@extend %menuitem-hvr !optional;
+			}
+		}
+	}
+
+		.menu .menu-item:focus {
+			@extend %menu-menuitem-focus !optional;
+		}
+
+		// LEVEL 1 MENU-ITEM
+		.menu > .menu-item {
+			@extend %menu-menuitem !optional;
+		}
+		.menu > .menu-item > a {
+			@extend %menu-menuitem-a !optional;
+		}
+		.menu > .menu-item > a:hover {
+			@extend %menu-menuitem-hvr !optional;
+		}
+
+		// MENU-ITEM.MENU-ITEM-HAS-CHILDREN
+		.menu .menu-item.menu-item-has-children {
+			@extend %menuitemhaschildren !optional;
+		}
+		.menu .menu-item.menu-item-has-children > a {
+			@extend %menuitemhaschildren-a !optional;
+		}
+		.menu .menu-item.menu-item-has-children > a:hover {
+			@extend %menuitemhaschildren-hvr !optional;
+		}

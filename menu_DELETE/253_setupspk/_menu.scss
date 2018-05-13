@@ -1,0 +1,140 @@
+/* SETUP | MENU | 253_SETUPSPK | MENU - 2017-11-28 */
+
+// -------------------------------------
+// EXTEND
+
+	// MENU
+	%menu {}
+
+	// GENESIS-NAV-MENU
+	%gnm {
+		list-style-type: none;			// removes bullets from gnm ul
+		margin-left: 0;					// removes left space from gnm ul
+		clear: both;
+		width: 100%;
+
+		@include responsive-range(medbelowdown) {
+			text-align: center;			// centers menu elements
+		}
+	}
+		
+		%gnm-ul {
+			margin-left: 0;				// removes margin-left from ul
+		}
+		%gnm-li {
+			@include responsive-range(medbelowdown) {
+				float: none;
+			}
+		}
+		%gnm-a {
+			display: block;
+		}
+		%gnm-first-a {
+			padding-left: 0;
+		}
+		%gnm-last-a {
+			padding-right: 0;
+		}
+		%gnm-right {
+			float: right;
+		}
+
+	// MENU-PRIMARY & MENU-SECONDARY
+	%menuboth {}
+
+	// MENU-PRIMARY
+	%menumenuprimary {
+		grid-area: menuprimary;
+		display: grid;
+		grid-auto-flow: column;
+		grid-column-gap: 1rem;
+
+		margin-bottom: 0;
+	}
+
+	// MENU-SECONDARY
+	%menumenusecondary {}
+
+	// WIDGET MENU
+	%menu-widget {}
+
+	// SIDEBAR MENU
+	%menu-sidebar {}
+
+	// FOOTER-WIDGETS MENU
+	%menu-footerwidgets {}
+
+	// FOOTER-MENU MENU
+	%menu-footermenu {
+		list-style-type: none;			// removes bullets from menu.ul
+		margin-left: 0;
+	}
+
+	// GENESIS-NAV-MENU
+	%menugnm {}
+
+	// PREFIX MENU
+	%menu-prefix {}
+
+// -------------------------------------
+// SELECTORS
+
+	.menu {
+		@extend %menu !optional;
+	}
+
+	.genesis-nav-menu {
+		@extend %gnm !optional;
+	}
+		.genesis-nav-menu ul {
+			@extend %gnm-ul !optional;
+		}
+		.genesis-nav-menu li {
+			@extend %gnm-li !optional;
+		}
+		.genesis-nav-menu a {
+			@extend %gnm-a !optional;
+		}
+		.genesis-nav-menu > .first > a {
+			@extend %gnm-first-a !optional;
+		}
+		.genesis-nav-menu > .last > a {
+			@extend %gnm-last-a !optional;
+		}
+		.genesis-nav-menu > .right {
+			@extend %gnm-right !optional;
+		}
+
+	.menu-primary {
+		@extend %menuboth !optional;
+		@extend %menumenuprimary !optional;
+	}
+
+	.menu-secondary {
+		@extend %menuboth !optional;
+		@extend %menumenusecondary !optional;
+	}
+
+	.widget .menu {
+		@extend %menu-widget !optional;
+	}
+
+	.sidebar .menu {
+		@extend %menu-sidebar !optional;
+	}
+
+	.footer-widgets .menu {
+		@extend %menu-footerwidgets !optional;
+	}
+
+	.footer-menu .menu {
+		@extend %menu-footermenu !optional;
+	}
+
+	.genesis-nav-menu {
+		@extend %menugnm !optional;
+	}
+
+	.prefix .menu {
+		@extend %menu-prefix !optional;
+	}
